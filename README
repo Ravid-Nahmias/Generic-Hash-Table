@@ -1,0 +1,51 @@
+README
+Name: Ravid Nahmias
+Id: 316032515
+
+Exercise 1 - Generic Hashtable 
+
+===Description ===
+
+Description of the program:
+    The program implements generics Hash Tables..
+    In this program we handle only two possiable cases: int type or string(char*) type.
+    The HashTable is implemented using an array where each cell is either contains
+    a single value or a pointer to a list of values. 
+    Collision occurs where more than one value has to be placed in the same cell in the array.
+
+Program files:
+1. GenericHashTable.h - the header, contains all the decleration of the functions and struct.
+2. GenericHashTable.c - contains the implementation of the functions.
+
+funcation:
+	1. createTable- the function initializes the Table struct members.
+    2. add - The function adds data to the hashtable.
+    3. search- The function search for an object that its data is equal to data.
+    4. removeObj - The function removes the Object which its data equals to data, if there are more than one, it removes the first one.
+    5. freeTable- The function release all the allocated members of struct Table.
+    6. printTable- The function print the table in a special format:
+                [idx]    -->    first Object     --> second Object ....
+    7. createObject- This function creates an object.
+    8. freeObject- This function frees an object.
+    9. isEqual- check the equality of the data of two objects.
+    10. intHashFun- returns the hash value of an integer.
+    11. strHashFun - returns the hash value of an string. 
+
+private function:
+	1. checksForTable- The function checks input variables for the create table function.
+    2. lastObjInList- this function returns the last object of the linkes list in the specific index in the table.
+    3. objectByType- this function returns an object that its data is casting according the type of the table
+    4. addToEnd- this function add an object to the end of the list in the specific index of the table.
+    5. findAPlaceInLists- this function receives an object and an index and insert the object to one of the list that are in the scope.
+                        the scope is from idx to (idx+table->D -1) lists. the function use the "addToEnd" function.
+    6. updateArray- this function update some values in case of multipling the table and the idx pointer is not null the values updates:
+                    the pointer of the array, the indexes of the objects
+    7. multiply_table- this function returns a multiply version of the table, it multiply the size of the array and transfer
+                    the existed lists to their new indexs.
+
+
+If you want to compile the program:
+gcc -g GenericHashTable.c main.c -o ex1 -Wall -Wvla
+
+If you want to run the program:
+./ex1
